@@ -1,0 +1,33 @@
+
+    <div class="search"> 
+
+        <input placeholder="Select and Press Enter" type="text" [matAutocomplete]="auto" (keyup.enter)="getPokemon($any($event.target).value)">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let t of nome.results" [value]="t.name">
+                {{t.name}}
+            </mat-option>
+        </mat-autocomplete>
+    </div>
+    
+    <div class="container">
+
+        <div class="card">
+            
+            <div class="card_title">
+                <h3> {{ pokemon.name }} </h3>
+            </div>
+
+            <div class="card_body">
+                <img [src]="pokemon.sprites.front_default" alt="pokemon">
+            </div>
+
+            <div class="card_status">
+                <span ngClass="{{t.type.name}}" 
+                    *ngFor="let t of pokemon.types">
+                    {{ t.type.name }}
+                </span>
+            </div>
+        </div>
+
+        
+    </div>
